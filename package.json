@@ -1,0 +1,26 @@
+{
+  "name": "discord.js_handler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlackWither17/Discord.js-Handler-Template.git"
+  },
+  "author": "Black_Wither",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BlackWither17/Discord.js-Handler-Template/issues"
+  },
+  "homepage": "https://github.com/BlackWither17/Discord.js-Handler-Template#readme",
+  "description": "",
+  "dependencies": {
+    "ascii-table": "^0.0.9",
+    "chalk": "^2.4.1",
+    "discord.js": "^14.24.0",
+    "dotenv": "^17.2.3",
+    "ms": "^2.1.3"
+  }
+}
