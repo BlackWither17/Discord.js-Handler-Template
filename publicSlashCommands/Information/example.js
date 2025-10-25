@@ -1,5 +1,5 @@
 const { ButtonBuilder, ActionRowBuilder, ModalBuilder, LabelBuilder, TextInputBuilder } = require('@discordjs/builders');
-const { ApplicationCommandType, PermissionFlagsBits, TextInputStyle, TextDisplayBuilder } = require('discord.js');
+const { ApplicationCommandType, PermissionFlagsBits, TextInputStyle } = require('discord.js');
 
 module.exports = {
 	name: 'examples',
