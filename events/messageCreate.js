@@ -1,6 +1,6 @@
-const { EmbedBuilder, Collection, PermissionsBitField } = require("discord.js");
-const ms = require("ms");
-const client = require("..");
+import { EmbedBuilder, Collection, PermissionsBitField } from "discord.js";
+import ms from "ms";
+import client from "../index.js";
 
 const prefix = client.prefix;
 const cooldown = new Collection();

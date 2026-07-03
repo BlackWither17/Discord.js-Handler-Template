@@ -1,6 +1,6 @@
-const { EmbedBuilder } = require ("discord.js");
+import { EmbedBuilder } from "discord.js";
 
-module.exports = {
+export default {
   id: "help_menu",
   permissions: [],
   run: async (client, interaction) => {

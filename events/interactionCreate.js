@@ -1,8 +1,8 @@
-const { EmbedBuilder, Collection, PermissionsBitField } = require("discord.js");
-const ms = require("ms");
-const client = require("..");
-const logger = require("../functions/logger");
-require("dotenv").config();
+import { EmbedBuilder, Collection, PermissionsBitField } from "discord.js";
+import ms from "ms";
+import client from "../index.js";
+import logger from "../functions/logger.js";
+import "dotenv/config";
 
 const cooldown = new Collection();
 

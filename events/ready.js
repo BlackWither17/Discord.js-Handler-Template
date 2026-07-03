@@ -1,6 +1,6 @@
-const { ActivityType } = require("discord.js");
-const client = require("..");
-const logger = require("../functions/logger");
+import { ActivityType } from "discord.js";
+import client from "../index.js";
+import logger from "../functions/logger.js";
 
 client.on("clientReady", () => {
   const guild = client.guilds.cache.get(process.env.GUILD_ID);

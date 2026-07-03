@@ -1,7 +1,10 @@
-const { EmbedBuilder, ApplicationCommandType, version } = require("discord.js");
+import { EmbedBuilder, ApplicationCommandType, version } from "discord.js";
+import { createRequire } from "module";
+
+const require = createRequire(import.meta.url);
 const botJSON = require("../../package.json");
 
-module.exports = {
+export default {
   name: "bot-info",
   description: "Shows you some information about the bot",
   cooldown: 3000,

@@ -1,6 +1,6 @@
-const { EmbedBuilder, ApplicationCommandType, ActionRowBuilder, StringSelectMenuBuilder, StringSelectMenuOptionBuilder } = require("discord.js");
+import { EmbedBuilder, ApplicationCommandType, ActionRowBuilder, StringSelectMenuBuilder, StringSelectMenuOptionBuilder } from "discord.js";
 
-module.exports = {
+export default {
   name: "help",
   description: "Shows you all commands of the bot",
   cooldown: 3000,

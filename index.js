@@ -1,6 +1,6 @@
-const { Client, GatewayIntentBits, Partials, Collection } = require("discord.js");
-const fs = require("fs");
-require("dotenv").config();
+import { Client, GatewayIntentBits, Partials, Collection } from "discord.js";
+import fs from "fs";
+import "dotenv/config";
 
 const client = new Client({
   intents: [
@@ -29,12 +29,13 @@ client.contextMenus = new Collection();
 client.allCommands = new Array();
 client.prefix = process.env.PREFIX;
 
-module.exports = client;
+export default client;
 
-fs.readdirSync("./handlers").forEach((handler) => {
-  require(`./handlers/${handler}`)(client);
-});
+(async () => {
+  for (const handler of fs.readdirSync("./handlers")) {
+    const { default: handlerFn } = await import(`./handlers/${handler}`);
+    await handlerFn(client);
+  }
 
-
-
-client.login(process.env.BOT_TOKEN);
+  client.login(process.env.BOT_TOKEN);
+})();

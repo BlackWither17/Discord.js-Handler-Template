@@ -1,26 +1,27 @@
-const fs = require("fs");
-const chalk = require("chalk");
-require("dotenv").config();
+import fs from "fs";
+import chalk from "chalk";
+import "dotenv/config";
 
-const { PermissionsBitField } = require("discord.js");
-const { Routes } = require("discord-api-types/v10");
-const { REST } = require("@discordjs/rest");
+import { PermissionsBitField } from "discord.js";
+import { Routes } from "discord-api-types/v10";
+import { REST } from "@discordjs/rest";
 
-const AsciiTable = require("ascii-table");
-const logger = require("../functions/logger");
+import AsciiTable from "ascii-table";
+import logger from "../functions/logger.js";
+
 const table = new AsciiTable().setHeading("Slash Commands", "Stats").setBorder("|", "=", "0", "0");
 
 const rest = new REST({ version: "10" }).setToken(process.env.BOT_TOKEN);
 
-module.exports = (client) => {
+export default async (client) => {
   const slashCommands = [];
 
-  fs.readdirSync("./slashCommands/").forEach(async dir => {
+  for (const dir of fs.readdirSync("./slashCommands/")) {
     const files = fs.readdirSync(`./slashCommands/${dir}/`).filter(file => file.endsWith(".js"));
 
 
     for(const file of files) {
-      const slashCommand = require(`../slashCommands/${dir}/${file}`);
+      const { default: slashCommand } = await import(`../slashCommands/${dir}/${file}`);
 
       client.allCommands.push({
         category: dir,
@@ -45,18 +46,16 @@ module.exports = (client) => {
       }
     }
 
-  });
+  }
   logger.log(chalk.red(table.toString()));
 
-  (async () => {
-    try {
-      await rest.put(
-        Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
-        { body: slashCommands },
-      );
-      logger.success("Slash Commands • Registered");
-    } catch (error) {
-      logger.error(error);
-    }
-  })();
+  try {
+    await rest.put(
+      Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
+      { body: slashCommands },
+    );
+    logger.success("Slash Commands • Registered");
+  } catch (error) {
+    logger.error(error);
+  }
 };

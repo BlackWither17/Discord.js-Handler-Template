@@ -11,6 +11,7 @@
   },
   "author": "Black_Wither",
   "license": "ISC",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/BlackWither17/Discord.js-Handler-Template/issues"
   },

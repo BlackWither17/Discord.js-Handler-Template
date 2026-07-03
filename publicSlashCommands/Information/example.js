@@ -1,7 +1,7 @@
-const { ButtonBuilder, ActionRowBuilder, ModalBuilder, LabelBuilder, TextInputBuilder } = require("@discordjs/builders");
-const { ApplicationCommandType, PermissionFlagsBits, TextInputStyle } = require("discord.js");
+import { ButtonBuilder, ActionRowBuilder, ModalBuilder, LabelBuilder, TextInputBuilder } from "@discordjs/builders";
+import { ApplicationCommandType, PermissionFlagsBits, TextInputStyle } from "discord.js";
 
-module.exports = {
+export default {
   name: "examples",
   description: "Shows you example interactions like modals and buttons",
   cooldown: 3000,

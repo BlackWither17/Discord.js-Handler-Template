@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   name: "ping",
   description: "Check bot's ping.",
   cooldown: 3000,
